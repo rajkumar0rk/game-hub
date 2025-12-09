@@ -1,14 +1,16 @@
-import ButtonUsage from "./components/Button"
-
+import { useColorScheme } from "@mui/material/styles";
+import NavBar from "./components/NavBar";
 
 function App() {
-
-
+  const { mode, setMode } = useColorScheme();
+  if (!mode) {
+    return null;
+  }
   return (
     <>
-    <ButtonUsage/>
+      <NavBar />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
