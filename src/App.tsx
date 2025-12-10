@@ -1,15 +1,22 @@
-import { useColorScheme } from "@mui/material/styles";
-import NavBar from "./components/NavBar";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import NavBar from "./Layouts/NavBar";
+import GLtheme from "./theme";
+import { Box, CssBaseline, Toolbar, Typography } from "@mui/material";
+import SideBar from "./Layouts/SideBar";
+import Main from "./Layouts/Main";
 
 function App() {
-  const { mode, setMode } = useColorScheme();
-  if (!mode) {
-    return null;
-  }
+  const theme = createTheme(GLtheme);
   return (
-    <>
+    <ThemeProvider theme={theme} defaultMode="dark">
+      <Box sx={{ display: 'flex' }}>
+      <CssBaseline /> 
       <NavBar />
-    </>
+      <SideBar/>
+       <Main/>
+      </Box>
+    </ThemeProvider>
+
   );
 }
 
