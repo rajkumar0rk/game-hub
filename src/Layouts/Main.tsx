@@ -6,9 +6,9 @@ const Main = () => {
   return (
     <Box component="main" sx={{ flexGrow: 1, p: 3, pt: 7 }}>
       <Toolbar />
-      <Typography variant="h2">Products</Typography>
+      <Typography variant="h1">Products</Typography>
 
-      <Box sx={{ my: 3 }}>
+      <Box sx={{ my: 3, display: "flex" }}>
         <Select />
         <Select />
       </Box>

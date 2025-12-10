@@ -1,96 +1,120 @@
 import * as React from "react";
-import { type Theme, useTheme } from "@mui/material/styles";
-import OutlinedInput from "@mui/material/OutlinedInput";
+import { styled, alpha } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+import Menu, { type MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import MUISelect, { type SelectChangeEvent } from "@mui/material/Select";
+import EditIcon from "@mui/icons-material/Edit";
+import Divider from "@mui/material/Divider";
+import ArchiveIcon from "@mui/icons-material/Archive";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { Box } from "@mui/material";
+import theme from "../theme";
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
+const StyledMenu = styled((props: MenuProps) => (
+  <Menu
+    elevation={0}
+    anchorOrigin={{
+      vertical: "bottom",
+      horizontal: "right",
+    }}
+    transformOrigin={{
+      vertical: "top",
+      horizontal: "right",
+    }}
+    {...props}
+  />
+))(({ theme }) => ({
+  "& .MuiPaper-root": {
+    borderRadius: 6,
+    marginTop: theme.spacing(1),
+    minWidth: 180,
+    color: "rgb(55, 65, 81)",
+    boxShadow:
+      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
+    "& .MuiMenu-list": {
+      padding: "4px 0",
     },
-    MenuListProps: {
-      sx: {
-        right: "-17px",
+    "& .MuiMenuItem-root": {
+      "& .MuiSvgIcon-root": {
+        fontSize: 18,
+        color: theme.palette.text.secondary,
+        marginRight: theme.spacing(1.5),
+        ...theme.applyStyles("dark", {
+          color: "inherit",
+        }),
+      },
+      "&:active": {
+        backgroundColor: alpha(
+          theme.palette.primary.main,
+          theme.palette.action.selectedOpacity
+        ),
       },
     },
+    ...theme.applyStyles("dark", {
+      color: theme.palette.grey[300],
+    }),
   },
-};
+}));
 
-const names = [
-  "Oliver Hansen",
-  "Van Henry",
-  "April Tucker",
-  "Ralph Hubbard",
-  "Omar Alexander",
-  "Carlos Abbott",
-  "Miriam Wagner",
-  "Bradley Wilkerson",
-  "Virginia Andrews",
-  "Kelly Snyder",
-];
-
-function getStyles(name: string, personName: readonly string[], theme: Theme) {
-  return {
-    fontWeight: personName.includes(name)
-      ? theme.typography.fontWeightMedium
-      : theme.typography.fontWeightRegular,
+export default function CustomizedMenus() {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
   };
-}
-
-export default function Select() {
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState<string[]>([]);
-
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
-        <MUISelect
-          displayEmpty
-          value={personName}
-          onChange={handleChange}
-          input={<OutlinedInput />}
-          renderValue={(selected) => {
-            if (selected.length === 0) {
-              return <em>Placeholder</em>;
-            }
-
-            return selected.join(", ");
-          }}
-          MenuProps={MenuProps}
-          //   sx={{[`& .MuiPopover-paper`]:{
-          //   scrollbarWidth: "none",      // Firefox
-          //   "&::-webkit-scrollbar": {
-          //     display: "none",           // Chrome, Edge
-          //   },
-          // }}}
-          inputProps={{ "aria-label": "Without label" }}
-        >
-          {names.map((name) => (
-            <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
-            >
-              {name}
-            </MenuItem>
-          ))}
-        </MUISelect>
-      </FormControl>
-    </div>
+    <Box  sx={{ mr: 2 }}>
+      <Button
+        id="demo-customized-button"
+        aria-controls={open ? "demo-customized-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        variant="contained"
+        disableElevation
+        onClick={handleClick}
+        endIcon={<KeyboardArrowDownIcon />}
+        sx={{
+          color: (theme) => theme.palette.text.primary,
+          bgcolor: (theme) => theme.palette.primary.main,
+        }}
+      >
+        Options
+      </Button>
+      <StyledMenu
+        id="demo-customized-menu"
+        slotProps={{
+          list: {
+            "aria-labelledby": "demo-customized-button",
+          },
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose} disableRipple>
+          <EditIcon />
+          Edit
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <FileCopyIcon />
+          Duplicate
+        </MenuItem>
+        <Divider sx={{ my: 0.5 }} />
+        <MenuItem onClick={handleClose} disableRipple>
+          <ArchiveIcon />
+          Archive
+        </MenuItem>
+        <MenuItem onClick={handleClose} disableRipple>
+          <MoreHorizIcon />
+          More
+        </MenuItem>
+      </StyledMenu>
+    </Box>
   );
 }

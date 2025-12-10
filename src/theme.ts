@@ -246,42 +246,7 @@ const typography = {
 const palette: Partial<Palette> = {
   common: { black: "#000", white: "#fff" },
   // type: "light",
-  primary: {
-    light: "#4c6ebf",
-    main: "#4d5061",
-    dark: "#474a59",
-    contrastText: "#fff",
-  },
-  secondary: {
-    light: "#63a4ff",
-    main: "#6a6c80",
-    dark: "#464754",
-    contrastText: "#fff",
-  },
-  error: {
-    light: "#BF334C",
-    main: "#b00020",
-    dark: "#7B0016",
-    contrastText: "#fff",
-  },
-  warning: {
-    light: "#ffc947",
-    main: "#ff9800",
-    dark: "#c66900",
-    contrastText: "#fff",
-  },
-  info: {
-    light: "#63a4ff",
-    main: "#FFFFFF",
-    dark: "#004ba0",
-    contrastText: "#fff",
-  },
-  success: {
-    light: "#5fab5e",
-    main: "#2e7b32",
-    dark: "#004e06",
-    contrastText: "#fff",
-  },
+
 
   grey: {
     50: "#fafafa",
@@ -368,14 +333,35 @@ const theme: ThemeOptions = {
           activatedOpacity: 0.12,
         },
         divider: "rgba(0, 0, 0, 0.12)",
+         primary: {
+    main: "#dcdcdc",
+
+  },
+  secondary: {
+    main: "#000",
+
+  },
+  error: {
+    main: "#BF334C",
+
+  },
+  warning: {
+    main: "#ffc947",
+
+  },
+  info: {
+    main: "#63a4ff",
+  },
+  success: {
+    main: "#5fab5e",
+
+  },
       },
     },
     dark: {
-
       palette: {
         ...palette,
         background: {
-
           default: '#121212',  // Body background (dark)
           paper: "#121212"
         },
@@ -405,7 +391,28 @@ const theme: ThemeOptions = {
           activatedOpacity: 0.12,
         },
         divider: "rgba(255, 255, 255, 0.12)",
+ primary: {
 
+    main: "#262626",
+  },
+  secondary: {
+
+    main: "#fff",
+  },
+  error: {
+    main: "#7B0016",
+  },
+  warning: {
+
+    main: "#c66900",
+  },
+  info: {
+    main: "#004ba0",
+
+  },
+  success: {
+    main: "#004e06",
+  },
       },
     },
 
