@@ -282,7 +282,7 @@ const palette: Partial<Palette> = {
     dark: "#004e06",
     contrastText: "#fff",
   },
- 
+
   grey: {
     50: "#fafafa",
     100: "#f5f5f5",
@@ -331,7 +331,7 @@ const shadows: Shadows = [
   "0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2)",
 ];
 const theme: ThemeOptions = {
-  // breakpoints,
+  breakpoints,
   // palette,
   // colorSchemes:{
   // dark:true,
@@ -345,32 +345,30 @@ const theme: ThemeOptions = {
           default: '#f5f5f5',
           paper: '#f5f5f5',  // Body background (light)
         },
-        AppBar:{
+        AppBar: {
           defaultBg: '#f5f5f5',
-          darkBg:"#f5f5f5"
+          darkBg: "#f5f5f5"
         },
         text: {
           primary: "#212121",
           secondary: "#757575",
           disabled: "rgba(0, 0, 0, 0.38)",
         },
-         action: {
-    active: "rgba(0, 0, 0, 0.54)",
-    hover: "rgba(0, 0, 0, 0.04)",
-    hoverOpacity: 0.04,
-    selected: "rgba(0, 0, 0, 0.08)",
-    selectedOpacity: 0.08,
-    disabled: "rgba(0, 0, 0, 0.26)",
-    disabledBackground: "rgba(0, 0, 0, 0.12)",
-    disabledOpacity: 0.38,
-    focus: "rgba(0, 0, 0, 0.12)",
-    focusOpacity: 0.12,
-    activatedOpacity: 0.12,
-  },
-  divider: "rgba(0, 0, 0, 0.12)",
-        
+        action: {
+          active: "rgba(0, 0, 0, 0.54)",
+          hover: "rgba(0, 0, 0, 0.04)",
+          hoverOpacity: 0.04,
+          selected: "rgba(0, 0, 0, 0.08)",
+          selectedOpacity: 0.08,
+          disabled: "rgba(0, 0, 0, 0.26)",
+          disabledBackground: "rgba(0, 0, 0, 0.12)",
+          disabledOpacity: 0.38,
+          focus: "rgba(0, 0, 0, 0.12)",
+          focusOpacity: 0.12,
+          activatedOpacity: 0.12,
+        },
+        divider: "rgba(0, 0, 0, 0.12)",
       },
-
     },
     dark: {
 
@@ -381,9 +379,9 @@ const theme: ThemeOptions = {
           default: '#121212',  // Body background (dark)
           paper: "#121212"
         },
-        AppBar:{
-defaultBg:  '#121212 !important',
-darkBg:"#121212 "
+        AppBar: {
+          defaultBg: '#121212 !important',
+          darkBg: "#121212 "
         },
         text: {
           primary: "#f5f5f5",
@@ -393,20 +391,20 @@ darkBg:"#121212 "
           disabled: "rgba(0, 0, 0, 0.38)",
           // hint: "rgba(0, 0, 0, 0.38)",
         },
-          action: {
-    active: "rgba(255, 255, 255, 0.54)",
-    hover: "rgba(255, 255, 255, 0.04)",
-    hoverOpacity: 0.04,
-    selected: "rgba(255, 255, 255, 0.08)",
-    selectedOpacity: 0.08,
-    disabled: "rgba(255, 255, 255, 0.26)",
-    disabledBackground: "rgba(255, 255, 255, 0.12)",
-    disabledOpacity: 0.38,
-    focus: "rgba(255, 255, 255, 0.12)",
-    focusOpacity: 0.12,
-    activatedOpacity: 0.12,
-  },
-  divider: "rgba(255, 255, 255, 0.12)",
+        action: {
+          active: "rgba(255, 255, 255, 0.54)",
+          hover: "rgba(255, 255, 255, 0.04)",
+          hoverOpacity: 0.04,
+          selected: "rgba(255, 255, 255, 0.08)",
+          selectedOpacity: 0.08,
+          disabled: "rgba(255, 255, 255, 0.26)",
+          disabledBackground: "rgba(255, 255, 255, 0.12)",
+          disabledOpacity: 0.38,
+          focus: "rgba(255, 255, 255, 0.12)",
+          focusOpacity: 0.12,
+          activatedOpacity: 0.12,
+        },
+        divider: "rgba(255, 255, 255, 0.12)",
 
       },
     },

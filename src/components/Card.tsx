@@ -1,12 +1,12 @@
-import MUICard from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import CardActionArea from '@mui/material/CardActionArea';
+import MUICard from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import CardActionArea from "@mui/material/CardActionArea";
 
 export default function Card() {
   return (
-    <MUICard sx={{ maxWidth: 345 ,borderRadius:3}}>
+    <MUICard sx={{ maxWidth: 345, borderRadius: 3 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -18,7 +18,7 @@ export default function Card() {
           <Typography gutterBottom variant="h5" component="div">
             Lizard
           </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+          <Typography variant="body2" sx={{ color: "text.secondary" }}>
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography>
