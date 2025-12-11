@@ -9,9 +9,11 @@ import { useColorScheme } from "@mui/material/styles";
 import Switch from "../components/Switch";
 import Search from "../components/Search";
 import Logo from "../assets/logo.webp";
+import { useState } from "react";
 
-const NavBar = () => {
+const NavBar = ({changeCategory}:{changeCategory:(val:string)=>void}) => {
   const { mode, setMode } = useColorScheme();
+  const [search,setSearch]=useState("")
   return (
     <AppBar
       position="absolute"
@@ -34,7 +36,7 @@ const NavBar = () => {
         >
           <img src={Logo} style={{ width: "70px", height: "70px" }} />
         </IconButton>
-        <Search />
+       <Search onChange={(e)=>setSearch(e.target.value)}   onKeyDown={()=>changeCategory(`/search?q=${search}`)} />
 
         <Box sx={{}}>
           <FormControlLabel

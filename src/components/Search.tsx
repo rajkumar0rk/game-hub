@@ -1,6 +1,7 @@
 import { InputBase } from "@mui/material";
 import { alpha, styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
+import type { ChangeEvent } from "react";
 
 const SearchDiv = styled("div")(({ theme }) => ({
   position: "relative",
@@ -50,7 +51,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Search = () => {
+interface Props {
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onKeyDown: () => void;
+}
+
+const Search = ({ onChange, onKeyDown }: Props) => {
   return (
     <SearchDiv>
       <SearchIconWrapper>
@@ -59,6 +65,10 @@ const Search = () => {
       <StyledInputBase
         placeholder="Search games…"
         inputProps={{ "aria-label": "search" }}
+        onChange={onChange}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") onKeyDown();
+        }}
       />
     </SearchDiv>
   );

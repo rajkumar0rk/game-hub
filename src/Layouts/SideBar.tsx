@@ -3,34 +3,36 @@ import {
   Drawer,
   List,
   ListItem,
-  ListItemAvatar,
   ListItemButton,
   ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+
 import { useEffect, useState } from "react";
 import productService from "../Services/productService";
 import type { Category } from "../types/product";
 
 const drawerWidth = 240;
 
-
-const SideBar = ({changeCategory}:{changeCategory:(val:string)=>void}) => {
-
-  const [categories,setCategories]=useState<Category[]>([])
-  useEffect(()=>{
-    let cancel:()=>void
-    const fetchData=async()=>{
-     const {data,cancel:cancelCategory}= await productService.get("/categories");
-     cancel=cancelCategory
-     setCategories(data)
-    }
-    fetchData()
-    return()=>cancel?.()
-  },[])
+const SideBar = ({
+  changeCategory,
+}: {
+  changeCategory: (val: string) => void;
+}) => {
+  const [categories, setCategories] = useState<Category[]>([]);
+  useEffect(() => {
+    let cancel: () => void;
+    const fetchData = async () => {
+      const { data, cancel: cancelCategory } = await productService.getAll(
+        "/categories"
+      );
+      cancel = cancelCategory;
+      setCategories(data);
+    };
+    fetchData();
+    return () => cancel?.();
+  }, []);
 
   return (
     <Drawer
@@ -55,8 +57,13 @@ const SideBar = ({changeCategory}:{changeCategory:(val:string)=>void}) => {
         <List>
           {categories.map((category) => (
             <ListItem key={category.slug} disablePadding>
-              <ListItemButton sx={{ pl: 6 }} onClick={()=>changeCategory(category.url)} >
-                
+              <ListItemButton
+                sx={{ pl: 6 }}
+                onClick={() => {
+                  const key = category.url.split("/");
+                  changeCategory(key.filter((k, index) => index > key.length - 3).join("/"));
+                }}
+              >
                 <ListItemText primary={category.name} />
               </ListItemButton>
             </ListItem>

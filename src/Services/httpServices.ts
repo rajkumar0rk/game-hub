@@ -8,16 +8,13 @@ class HttpServices {
     this.endpoint = endpoint
   }
 
-  getAll = async() => {
+  getAll = async(path?:string,filter?:string) => {
     const controller= new AbortController()
-    const {data}= await apiClient.get(this.endpoint,{signal:controller.signal});
+    const url= this.endpoint+(path?"/"+path:'' ) +(filter ? filter : '')
+    const {data}= await apiClient.get(url,{signal:controller.signal});
     return {data,cancel:()=>controller.abort()}
   }
-  get = async(path:string) => {
-    const controller= new AbortController()
-    const {data}= await apiClient.get(this.endpoint+path,{signal:controller.signal});
-    return {data,cancel:()=>controller.abort()}
-  }
+
   create=async <T>(entity:T)=>{
    return await apiClient.post(this.endpoint,entity)
   }

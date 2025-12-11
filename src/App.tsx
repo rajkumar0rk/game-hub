@@ -13,9 +13,9 @@ function App() {
     <ThemeProvider theme={theme} defaultMode="dark">
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <NavBar />
+        <NavBar changeCategory={(val)=>setCategory(val)}/>
         <SideBar  changeCategory={(val)=>setCategory(val)}  />
-        <Main category={category} />
+        <Main category={category}  />
       </Box>
     </ThemeProvider>
   );
