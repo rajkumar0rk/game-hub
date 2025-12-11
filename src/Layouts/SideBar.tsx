@@ -18,7 +18,7 @@ import type { Category } from "../types/product";
 const drawerWidth = 240;
 
 
-const SideBar = () => {
+const SideBar = ({changeCategory}:{changeCategory:(val:string)=>void}) => {
 
   const [categories,setCategories]=useState<Category[]>([])
   useEffect(()=>{
@@ -55,7 +55,8 @@ const SideBar = () => {
         <List>
           {categories.map((category) => (
             <ListItem key={category.slug} disablePadding>
-              <ListItemButton sx={{ pl: 6 }} >
+              <ListItemButton sx={{ pl: 6 }} onClick={()=>changeCategory(category.url)} >
+                
                 <ListItemText primary={category.name} />
               </ListItemButton>
             </ListItem>

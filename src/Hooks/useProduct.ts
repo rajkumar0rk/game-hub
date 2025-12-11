@@ -62,7 +62,8 @@ const useProduct = () => {
     return () => {cancel?.productCancel()}
   }, [])
 
-  return { sort, order, filter, products, isLike, setFilter, setLiked }
+
+  return { sort, order, filter, products, isLike, setFilter, setLiked,setProducts }
 }
 
 export default useProduct;
