@@ -3,14 +3,10 @@ import { styled, alpha } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Menu, { type MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import EditIcon from "@mui/icons-material/Edit";
-import Divider from "@mui/material/Divider";
-import ArchiveIcon from "@mui/icons-material/Archive";
-import FileCopyIcon from "@mui/icons-material/FileCopy";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Box } from "@mui/material";
-import theme from "../theme";
+import type { SelectList } from "../types/select";
 
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
@@ -57,8 +53,15 @@ const StyledMenu = styled((props: MenuProps) => (
     }),
   },
 }));
+interface Props{
+  placeHolder:string;
+  values: SelectList[];
+  changeFilter:(val:SelectList)=>void
+}
 
-export default function CustomizedMenus() {
+
+
+export default function CustomizedMenus({placeHolder,values,changeFilter}:Props) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -67,6 +70,11 @@ export default function CustomizedMenus() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleMenuItemClick=(val:SelectList)=>{
+    changeFilter(val)
+    setAnchorEl(null);
+  }
 
   return (
     <Box  sx={{ mr: 2 }}>
@@ -80,11 +88,13 @@ export default function CustomizedMenus() {
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
         sx={{
+           textTransform: "capitalize", 
+
           color: (theme) => theme.palette.text.primary,
           bgcolor: (theme) => theme.palette.primary.main,
         }}
       >
-        Options
+        {placeHolder}
       </Button>
       <StyledMenu
         id="demo-customized-menu"
@@ -97,23 +107,12 @@ export default function CustomizedMenus() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose} disableRipple>
-          <EditIcon />
-          Edit
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <FileCopyIcon />
-          Duplicate
-        </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
-        <MenuItem onClick={handleClose} disableRipple>
-          <ArchiveIcon />
-          Archive
-        </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
-          <MoreHorizIcon />
-          More
-        </MenuItem>
+        {values.map((value)=>(
+          <MenuItem sx={{ textTransform: "capitalize"}} onClick={()=>handleMenuItemClick(value)} disableRipple>
+          {value.name}
+          </MenuItem>
+        ))}
+        
       </StyledMenu>
     </Box>
   );

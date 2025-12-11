@@ -21,19 +21,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1,
     letterSpacing: "-0.66px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "2.25rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "2.55rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "2.7rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "3rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "3.15rem",
     },
   },
@@ -42,19 +42,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1,
     letterSpacing: "-0.5px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "1.875rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "2.125rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "2.25rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "2.5rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "2.625rem",
     },
   },
@@ -63,19 +63,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1.02,
     letterSpacing: "0px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "1.5rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "1.7rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "1.8rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "2rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "2.1rem",
     },
   },
@@ -84,19 +84,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1.15,
     letterSpacing: "0.07px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "1.3125rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "1.4875rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "1.575rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.75rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.8375rem",
     },
   },
@@ -105,19 +105,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1.33,
     letterSpacing: "0px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "1.125rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "1.275rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "1.35rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.5rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.575rem",
     },
   },
@@ -126,19 +126,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1.6,
     letterSpacing: "0.07px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "0.9375rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "1.0625rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "1.125rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.25rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.3125rem",
     },
   },
@@ -148,19 +148,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1.75,
     letterSpacing: "0.09px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "0.9375rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "1.09375rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "1.25rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.40625rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.5625rem",
     },
   },
@@ -169,19 +169,19 @@ const typography = {
     fontWeight: isSafari ? 599 : 700,
     lineHeight: 1.57,
     letterSpacing: "0.07px",
-    [`@media only screen and (min-width:${breakpoints.values.xs}px) and (max-width:${breakpoints.values.sm}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xs}px) and (max-width:${breakpoints?.values?.sm}px)`]: {
       fontSize: "0.625rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.sm}px) and (max-width:${breakpoints.values.md}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.sm}px) and (max-width:${breakpoints?.values?.md}px)`]: {
       fontSize: "0.78125rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.md}px) and (max-width:${breakpoints.values.lg}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.md}px) and (max-width:${breakpoints?.values?.lg}px)`]: {
       fontSize: "0.9375rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.lg}px) and (max-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.lg}px) and (max-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.09375rem",
     },
-    [`@media only screen and (min-width:${breakpoints.values.xl}px)`]: {
+    [`@media only screen and (min-width:${breakpoints?.values?.xl}px)`]: {
       fontSize: "1.25rem",
     },
   },
@@ -362,12 +362,12 @@ const theme: ThemeOptions = {
       palette: {
         ...palette,
         background: {
-          default: '#121212',  // Body background (dark)
-          paper: "#121212"
+          default: '#111111',  // Body background (dark)
+          paper: "#111111"
         },
         AppBar: {
-          defaultBg: '#121212 !important',
-          darkBg: "#121212 "
+          defaultBg: '#111111 !important',
+          darkBg: "#111111 "
         },
         text: {
           primary: "#f5f5f5",
