@@ -54,9 +54,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 interface Props {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   onKeyDown: () => void;
+  value:string;
 }
 
-const Search = ({ onChange, onKeyDown }: Props) => {
+const Search = ({ value,onChange, onKeyDown }: Props) => {
   return (
     <SearchDiv>
       <SearchIconWrapper>
@@ -65,6 +66,7 @@ const Search = ({ onChange, onKeyDown }: Props) => {
       <StyledInputBase
         placeholder="Search games…"
         inputProps={{ "aria-label": "search" }}
+        value={value}
         onChange={onChange}
         onKeyDown={(e) => {
           if (e.key === "Enter") onKeyDown();

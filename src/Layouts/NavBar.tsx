@@ -11,7 +11,10 @@ import Search from "../components/Search";
 import Logo from "../assets/logo.webp";
 import { useState } from "react";
 
-const NavBar = ({changeCategory}:{changeCategory:(val:string)=>void}) => {
+interface Props { 
+  changeQuery:(val: string) => void 
+}
+const NavBar = ({changeQuery}:Props) => {
   const { mode, setMode } = useColorScheme();
   const [search,setSearch]=useState("")
   return (
@@ -36,7 +39,7 @@ const NavBar = ({changeCategory}:{changeCategory:(val:string)=>void}) => {
         >
           <img src={Logo} style={{ width: "70px", height: "70px" }} />
         </IconButton>
-       <Search onChange={(e)=>setSearch(e.target.value)}   onKeyDown={()=>changeCategory(`/search?q=${search}`)} />
+       <Search value={search} onChange={(e)=>setSearch(e.target.value )}   onKeyDown={()=>{changeQuery(`search?q=${search}&`);setSearch("")} } />
 
         <Box sx={{}}>
           <FormControlLabel

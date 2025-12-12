@@ -1,26 +1,21 @@
-import { Box, Grid, Toolbar, Typography } from "@mui/material";
+import { Box, Grid, Skeleton, Toolbar, Typography } from "@mui/material";
 import Card from "../components/Card";
 import Select from "../components/Select";
 import useProduct from "../Hooks/useProduct";
 import type { SelectList } from "../types/select";
-// import productService from "../Services/productService";
-// import { useEffect } from "react";
 
-const Main = ({category}:{category:string}) => {
-  const { sort, order, filter, products, isLike, setFilter, setLiked } = useProduct(category)
-  //  useEffect(()=>{
-  //   const fetch=async()=>{
-  //     if(category){
-  //       const key =category.split("/")
-  //       const { data:getProduct } = await productService.getAll("/category/"+key[key.length-1])
-  //       setProducts(getProduct.products)
-  //     }
-  //   }
-  //   fetch()
-  // },[category,setProducts])
-  const handleFilterChange =async (val:SelectList,filterBy:string) => {
+interface Props {
+  category: string,
+  query: string,
+  changeCategory: (val: string) => void,
+  changeQuery: (val: string) => void,
+}
 
-    setFilter({...filter, [filterBy]: val })
+const Main = ({ category, query }: Props) => {
+  const { sort, order, filter, products, isLike, setFilter, setLiked, error, loading } = useProduct(category, query);
+
+  const handleFilterChange = async (val: SelectList, filterBy: string) => {
+    setFilter({ ...filter, [filterBy]: val })
   }
 
   return (
@@ -29,10 +24,17 @@ const Main = ({category}:{category:string}) => {
       <Typography variant="h1">Products</Typography>
 
       <Box sx={{ my: 3, display: "flex" }}>
-        <Select placeHolder={filter.sort.name} values={sort} changeFilter={(val)=>handleFilterChange(val,"sort")} />
-        <Select placeHolder={filter.order.name} values={order} changeFilter={(val)=>handleFilterChange(val,"order")} />
+        <Select placeHolder={filter.sort.name} values={sort} changeFilter={(val) => handleFilterChange(val, "sort")} />
+        <Select placeHolder={filter.order.name} values={order} changeFilter={(val) => handleFilterChange(val, "order")} />
       </Box>
       <Grid container spacing={4}>
+        {loading && Array(6).fill(5).map((_, index) => (
+          <Grid size={4} key={index}>
+            <Skeleton variant="rounded" width={345} height={355} />
+          </Grid>
+        ))
+        }
+        {error && <Typography color="text.danger" component={"p"}>{error}</Typography>}
 
         {
           products.length > 0 ?
@@ -42,6 +44,7 @@ const Main = ({category}:{category:string}) => {
               </Grid>
             )) : <Typography variant="h3" > No product found...</Typography>
         }
+
 
       </Grid>
     </Box>

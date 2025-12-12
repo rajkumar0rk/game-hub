@@ -9,13 +9,14 @@ import { useState } from "react";
 function App() {
   const theme = createTheme(GLtheme);
   const [category,setCategory]=useState("")
+  const [query,setQuery]=useState("")
   return (
     <ThemeProvider theme={theme} defaultMode="dark">
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
-        <NavBar changeCategory={(val)=>setCategory(val)}/>
+        <NavBar changeQuery={(val)=>setCategory(val)} />
         <SideBar  changeCategory={(val)=>setCategory(val)}  />
-        <Main category={category}  />
+        <Main query={query} category={category} changeQuery={(val)=>setQuery(val)} changeCategory={(val)=>setCategory(val)} />
       </Box>
     </ThemeProvider>
   );
