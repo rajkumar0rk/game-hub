@@ -4,19 +4,25 @@ import {
   FormControlLabel,
   IconButton,
   Toolbar,
-} from "@mui/material";
-import { useColorScheme } from "@mui/material/styles";
-import Switch from "../components/Switch";
-import Search from "../components/Search";
-import Logo from "../assets/logo.webp";
-import { useState } from "react";
+} from '@mui/material'
+import { useColorScheme } from '@mui/material/styles'
+import Switch from '../components/Switch'
+import Search from '../components/Search'
+import Logo from '../assets/logo.webp'
+import { useState, type FormEvent } from 'react'
 
-interface Props { 
-  changeQuery:(val: string) => void 
+interface Props {
+  changeSearchQuery: (val: string) => void
+  changeUrlPath: (path: string) => void
 }
-const NavBar = ({changeQuery}:Props) => {
-  const { mode, setMode } = useColorScheme();
-  const [search,setSearch]=useState("")
+const NavBar = ({ changeSearchQuery, changeUrlPath }: Props) => {
+  const { mode, setMode } = useColorScheme()
+  const [search, setSearch] = useState('')
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    changeUrlPath(`search`)
+    changeSearchQuery(search)
+  }
   return (
     <AppBar
       position="absolute"
@@ -37,25 +43,33 @@ const NavBar = ({changeQuery}:Props) => {
           aria-label="open drawer"
           sx={{ mr: 2 }}
         >
-          <img src={Logo} style={{ width: "70px", height: "70px" }} />
+          <img src={Logo} style={{ width: '70px', height: '70px' }} />
         </IconButton>
-       <Search value={search} onChange={(e)=>setSearch(e.target.value )}   onKeyDown={()=>{changeQuery(`search?q=${search}&`);setSearch("")} } />
+        <Box width={'100%'} px={2}>
+          <form onSubmit={handleSubmit}>
+            <Search
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </form>
+        </Box>
 
         <Box sx={{}}>
           <FormControlLabel
             control={
               <Switch
                 sx={{ m: 1 }}
-                checked={mode === "dark" ? true : false}
-                onChange={(e) => setMode(e.target.checked ? "dark" : "light")}
+                checked={mode === 'dark' ? true : false}
+                onChange={(e) => setMode(e.target.checked ? 'dark' : 'light')}
               />
             }
+            sx={{ textWrap: 'nowrap' }}
             label="Dark Mode"
           />
         </Box>
       </Toolbar>
     </AppBar>
-  );
-};
+  )
+}
 
-export default NavBar;
+export default NavBar

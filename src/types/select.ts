@@ -1,4 +1,4 @@
-export interface SelectList{
-  slug:string,
-  name:string
+export interface SelectList {
+  slug: string
+  name: string
 }

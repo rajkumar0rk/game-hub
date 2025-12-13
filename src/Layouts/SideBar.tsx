@@ -7,33 +7,17 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-} from "@mui/material";
+} from '@mui/material'
 
-import { useEffect, useState } from "react";
-import productService from "../Services/productService";
-import type { Category } from "../types/product";
+import useCategories from '../Hooks/useCategories'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
-const SideBar = ({
-  changeCategory,
-}: {
-  changeCategory: (val: string) => void;
-}) => {
-  const [categories, setCategories] = useState<Category[]>([]);
-  useEffect(() => {
-    let cancel: () => void;
-    const fetchData = async () => {
-      const { data, cancel: cancelCategory } = await productService.getAll(
-        "/categories"
-      );
-      cancel = cancelCategory;
-      setCategories(data);
-    };
-    fetchData();
-    return () => cancel?.();
-  }, []);
-
+interface Props {
+  changeUrlPath: (path: string) => void
+}
+const SideBar = ({ changeUrlPath }: Props) => {
+  const { categories } = useCategories()
   return (
     <Drawer
       variant="permanent"
@@ -42,15 +26,15 @@ const SideBar = ({
         flexShrink: 0,
         [`& .MuiDrawer-paper`]: {
           width: drawerWidth,
-          boxSizing: "border-box",
+          boxSizing: 'border-box',
           borderRight: 0,
-          overflow: "hidden",
-          position: "unset",
+          overflow: 'hidden',
+          position: 'unset',
         },
       }}
     >
-      <Toolbar sx={{ minHeight: "100px !important" }} />
-      <Box sx={{ overflow: "hidden" }}>
+      <Toolbar sx={{ minHeight: '100px !important' }} />
+      <Box sx={{ overflow: 'hidden' }}>
         <Typography variant="h4" sx={{ pl: 4 }}>
           Category
         </Typography>
@@ -60,8 +44,7 @@ const SideBar = ({
               <ListItemButton
                 sx={{ pl: 6 }}
                 onClick={() => {
-                  const key = category.url.split("/");
-                  changeCategory(key.filter((k, index) => index > key.length - 3).join("/"));
+                  changeUrlPath('category/' + category.slug)
                 }}
               >
                 <ListItemText primary={category.name} />
@@ -71,7 +54,7 @@ const SideBar = ({
         </List>
       </Box>
     </Drawer>
-  );
-};
+  )
+}
 
-export default SideBar;
+export default SideBar
